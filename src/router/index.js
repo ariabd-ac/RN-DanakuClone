@@ -1,26 +1,18 @@
-import {createStackNavigator} from 'react-navigation-stack'
-import {createAppContainer} from 'react-navigation'
+import React from 'react'
+import {createStackNavigator} from '@react-navigation/stack'
+import {NavigationContainer} from '@react-navigation/native'
 import {Splash,EnterNumber} from '../pages'
 
 
-const Router=createStackNavigator(
-    {
-        Splash:{
-            screen:Splash,
-            navigationOptions:{
-                header:false
-            }
-        },
-        EnterNumber:{
-            screen:EnterNumber,
-            navigationOptions:{
-                header:false
-            }
-        }
-    },{
-        initialRouteName:'Splash'
-    }
-)
+const Stack=createStackNavigator()
 
-
-export default createAppContainer(Router)
+export default function Router(){
+    return(
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name='Splash' component={Splash} options={{headerShown:false}}/>
+                <Stack.Screen name='EnterNumber' component={EnterNumber} options={{headerShown:false}}/>
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
+}
