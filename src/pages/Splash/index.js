@@ -6,7 +6,7 @@ import { Colors } from '../../utils'
 const Splash = ({navigation}) => {
     useEffect(()=>{
         setTimeout(() => {
-            navigation.navigate('EnterNumber')
+            navigation.navigate('OnBoarding')
         }, 3000);
     })
 
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:'blue'
+        backgroundColor:Colors.header
     },
     image:{
         height:40,

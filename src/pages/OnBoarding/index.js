@@ -6,7 +6,7 @@ import { IconApp } from '../../assets/assets/top-icon'
 import { Button, SplashItem } from '../../components'
 import { Colors } from '../../utils'
 
-const EnterNumber = () => {
+const OnBoarding = () => {
 
      const dot=<View
                 style={{
@@ -69,7 +69,7 @@ const EnterNumber = () => {
     )
 }
 
-export default EnterNumber
+export default OnBoarding
 
 const styles = StyleSheet.create({
     logo_wrapper:{

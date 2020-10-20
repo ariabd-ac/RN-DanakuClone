@@ -1,7 +1,7 @@
 import Splash from './Splash'
-import EnterNumber from './EnterNumber'
+import OnBoarding from './OnBoarding'
 
 export {
     Splash,
-    EnterNumber
+    OnBoarding
 }
