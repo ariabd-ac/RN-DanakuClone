@@ -18,8 +18,10 @@ const Login = ({navigation}) => {
     }
 
     useEffect(()=>{
-        console.log(inputRef.current)
-        inputRef.current.focus()
+        // console.log(inputRef.current)
+        setTimeout(()=>{
+            inputRef.current.focus()
+        },1000)
     },[])
 
     useEffect(()=>{

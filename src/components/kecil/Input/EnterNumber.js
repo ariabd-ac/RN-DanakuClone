@@ -4,6 +4,7 @@ import { Colors } from '../../../utils'
 
 
 const EnterNumber = ({placeholder,onChangeText,value,forwardedRef}) => {
+
     return (
         <View style={styles.container}>
             <TextInput 
