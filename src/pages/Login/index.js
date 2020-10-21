@@ -28,6 +28,8 @@ const Login = ({navigation}) => {
         console.log(phoneNumber.length)
         if(phoneNumber.length >9){
             setBtnNextDisable(false)
+        }else{
+            setBtnNextDisable(true)
         }
     },[phoneNumber])
 
