@@ -1,9 +1,9 @@
 import Splash from './Splash'
-import EnterNumber from './EnterNumber'
-import SwiperScreen from "./SwiperScreen"
+import OnBoarding from './OnBoarding'
+import Home from "./Home"
 
 export {
     Splash,
-    EnterNumber,
-    SwiperScreen
+    OnBoarding,
+    Home
 }

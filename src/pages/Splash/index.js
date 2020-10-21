@@ -8,7 +8,7 @@ import { Colors } from '../../utils'
 const Splash = ({ navigation }) => {
     useEffect(() => {
         setTimeout(() => {
-            navigation.navigate('SwiperScreen')
+            navigation.navigate('OnBoarding')
         }, 3000);
     })
 
@@ -22,11 +22,11 @@ const Splash = ({ navigation }) => {
 export default Splash
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: '#118EEA'
+    container:{
+        flex:1,
+        justifyContent:"center",
+        alignItems:"center",
+        backgroundColor:Colors.header
     },
     image: {
         height: 40,

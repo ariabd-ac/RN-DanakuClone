@@ -1,32 +1,19 @@
-import {createStackNavigator} from 'react-navigation-stack'
-import {createAppContainer} from 'react-navigation'
-import {Splash,EnterNumber, SwiperScreen} from '../pages'
+import React from 'react'
+import {createStackNavigator} from '@react-navigation/stack'
+import {NavigationContainer} from '@react-navigation/native'
+import {Splash,OnBoarding, Home} from '../pages'
 
 
-const Router=createStackNavigator(
-    {
-        Splash:{
-            screen:Splash,
-            navigationOptions:{
-                header:false
-            }
-        },
-        SwiperScreen:{
-            screen: SwiperScreen,
-            navigationOptions:{
-                header: false
-            }
-        },
-        EnterNumber:{
-            screen:EnterNumber,
-            navigationOptions:{
-                header:false
-            }
-        },
-    },{
-        initialRouteName:'SwiperScreen'
-    }
-)
+const Stack=createStackNavigator()
 
-
-export default createAppContainer(Router)
+export default function Router(){
+    return(
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Home">
+                <Stack.Screen name='Splash' component={Splash} options={{headerShown:false}}/>
+                <Stack.Screen name='OnBoarding' component={OnBoarding} options={{headerShown:false}}/>
+                <Stack.Screen name='Home' component={Home} options={{headerShown:false}}/>
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
+}
