@@ -3,11 +3,11 @@ import { StyleSheet, Text, View,TextInput } from 'react-native'
 import { Colors } from '../../../utils'
 import EnterNumber from './EnterNumber'
 
-const Input = ({placeholder,type,onChangeText,value}) => {
+const Input = ({placeholder,type,onChangeText,value,forwardedRef}) => {
 
     if(type=='enterNumber'){
         return(
-            <EnterNumber onChangeText={onChangeText} value={value}/>
+            <EnterNumber onChangeText={onChangeText} value={value} forwardedRef={forwardedRef}/>
         )
     }
     return (

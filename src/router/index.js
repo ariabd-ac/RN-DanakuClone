@@ -10,7 +10,7 @@ const Stack=createStackNavigator()
 export default function Router(){
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
+            <Stack.Navigator initialRouteName="Login">
                 <Stack.Screen name='Splash' component={Splash} options={{headerShown:false}}/>
                 <Stack.Screen name='OnBoarding' component={OnBoarding} options={{headerShown:false}}/>
                 <Stack.Screen name='Login' component={Login} options={{headerShown:false}}/>
