@@ -6,7 +6,7 @@ import { IconApp } from '../../assets/assets/top-icon'
 import { Button, SplashItem } from '../../components'
 import { Colors } from '../../utils'
 
-const OnBoarding = () => {
+const OnBoarding = ({navigation}) => {
 
      const dot=<View
                 style={{
@@ -59,7 +59,7 @@ const OnBoarding = () => {
             </Swiper>
                 
             <View style={styles.footer}>
-                <Button text='SKIP' onPress={()=>console.log('SKIP')}/>
+                <Button text='SKIP' onPress={()=>navigation.navigate('Login')}/>
                 <Text style={styles.footer_text}>
                     By tapping skip button,you agree to our Terms & Conditions
                 </Text>
