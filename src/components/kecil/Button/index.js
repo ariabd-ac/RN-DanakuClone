@@ -3,9 +3,9 @@ import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 import {  } from 'react-native-gesture-handler'
 import { Colors } from '../../../utils'
 
-const Button = ({text,onPress}) => {
+const Button = ({text,onPress,style}) => {
     return (
-        <TouchableOpacity onPress={onPress} style={styles.button}>
+        <TouchableOpacity onPress={onPress} style={style ? style : styles.button}>
             <Text style={styles.button_text}>{text}</Text>
         </TouchableOpacity>
     )

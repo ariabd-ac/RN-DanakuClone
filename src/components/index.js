@@ -1,2 +1,3 @@
 export * from './kecil'
-// export * from './besar'
+
+export * from './besar'

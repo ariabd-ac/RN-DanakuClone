@@ -1,9 +1,16 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { Button } from '../../components'
+import { Button, MidMenuItem } from '../../components'
+import { Colors } from '../../utils'
+import ActionButton from "./ActionButton"
 
 export default function Home() {
+
+  const handleBeli = () => {
+    alert('Beli')
+  }
+
   return (
     <>
       <View style={styles.containerTop}>
@@ -20,7 +27,8 @@ export default function Home() {
           </View>
         </View>
         {/* menu item */}
-        <View style={{height: 47,paddingHorizontal: 50, flexDirection: 'row', justifyContent: 'space-between', marginVertical: 20, marginBottom: 30}}>
+        <View style={{height: 47,paddingHorizontal: 50, flexDirection: 'row', justifyContent: 'space-between', marginVertical: 20, }}>
+          
             <View style={{width: 28, height: 44, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
               <View>
                 <Image source={require('../../assets/assets/top-icon/pindai-icon.png')} style={{height: 50, width: 50,}}/>
@@ -46,22 +54,55 @@ export default function Home() {
               </View>
             </View>
           </View>
-      </View>
-      <View style={styles.containerBootom}>
-        <View style={{backgroundColor: '#FFFFFF', height: 246, width: 400, top: -80, borderRadius: 7, backgroundColor: 'pink'}}>
-          <View style={{height: 81, flexDirection: 'row', flex: 1,}}>
-            <View style={{flexDirection: 'row',height: 81, flex: 1, justifyContent: 'space-between', backgroundColor: 'green',}}>
-              <View style={{flexDirection: 'row', justifyContent:'center', alignItems: 'center', paddingLeft: 26,}}>
-                <Image source={require('../../assets/assets/mid-icon/pulsa-icon2.png')} style={{width: 28, height: 39}}/>
-                <View style={{paddingLeft: 25}}>
-                  <Text style={{color: '#313332', fontSize: 12, fontWeight: 'bold'}}>Pulsa</Text>
-                  <Text style={{color: '#D1B784', fontSize: 10, fontWeight: 'bold'}}>Beli Pulsa Yuk!</Text>
-                </View>
+
+        {/* Beli */}
+        <View style={{backgroundColor: '#ffffff' , height: 80, width: 400, marginLeft: 12, borderTopLeftRadius: 7, borderTopRightRadius: 7, top: -4}}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 30, paddingTop: 10}}>
+            <View style={{flexDirection: 'row',}}>
+              <Image source={require('../../assets/assets/mid-icon/pulsa-icon2.png')} style={{height: 39, width: 26}}/>
+              <View style={{marginLeft: 20,}}>
+                <Text style={{ color: '#282728'}}>Pulsa</Text>
+                <Text style={{ fontSize: 10, color: '#E4B170'}}>Gan Beli Gan!</Text>
               </View>
-            <Button text="Beli"/>
             </View>
+            <Button text="Beli" onPress={() => handleBeli()}/>
           </View>
         </View>
+      </View>
+      <View style={styles.containerBootom}>
+        {/* mid content */}
+        <View style={{backgroundColor: '#FFFFFF', height: 168, borderBottomLeftRadius: 7, borderBottomRightRadius: 7,width: 400, top: 0, backgroundColor: '#ffffff', marginBottom: 20,}}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-evenly', width: '100%', flexWrap: 'wrap', }}>
+            <MidMenuItem img={require('../../assets/assets/mid-icon/games-icon.png')} title="Game"/>
+            <MidMenuItem img={require('../../assets/assets/mid-icon/listrik-icon.png')} title="Listrik"/>
+            <MidMenuItem img={require('../../assets/assets/mid-icon/bpjs-icon.png')} title="BPJS"/>
+            <MidMenuItem img={require('../../assets/assets/mid-icon/telepon-icon.png')} title="Telpon"/>
+            <MidMenuItem img={require('../../assets/assets/mid-icon/pascabayar-icon.png')} title="Pascabayar"/>
+            <MidMenuItem img={require('../../assets/assets/mid-icon/tariksaldo-icon.png')} title="Tarik Saldo"/>
+            <MidMenuItem img={require('../../assets/assets/mid-icon/danakaget-icon.png')} title="Dana Kaget"/>
+            <MidMenuItem img={require('../../assets/assets/mid-icon/lihatsemua-icon.png')} title="Lihat Semua"/>
+          </View>
+        </View>
+        {/*  */}
+        {/* ada promo? */}
+        <View style={{height: 138, width: 400, borderBottomRightRadius: 4, borderBottomLeftRadius: 4}}>
+          <View style={{backgroundColor: Colors.background, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 18, height: 49, alignItems: 'center', borderTopLeftRadius: 4, borderTopRightRadius: 4, borderBottomRightRadius: 4, borderBottomLeftRadius: 4,}}>
+            <View>
+              <View>
+                <Text>Ada Promo Nih Sist!</Text>
+                <Text>Hidupmu indah bila shoping terus</Text>
+              </View>
+            </View>
+            <View style={{width: 94}}>
+              <Button text="Lihat Semua" style={{backgroundColor: 'transparant', padding: 8, borderColor: Colors.header, borderWidth: 2, borderRadius: 4,}} onPress={() => handleBeli()}/>
+            </View>
+          </View>
+          <ImageBackground imageStyle={{borderBottomLeftRadius: 4, borderBottomRightRadius: 4}} source={require('../../assets/assets/promo-icon/promo1.png')} style={{width: '100%', height: 100, position: 'relative', borderBottomLeftRadius: 4, borderBottomRightRadius: 4}}>
+            {/* <Image source={require('../../assets/assets/promo-icon/promo1.png')} style={{}} resizeMode=""/> */}
+            
+          </ImageBackground>
+        </View>
+        {/*  */}
       </View>
     </>
   )
@@ -72,6 +113,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     height: 219,
     backgroundColor: '#118EEA',
+    
   },
   containerBootom: {
     flex: 1,
