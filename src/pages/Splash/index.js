@@ -1,10 +1,12 @@
-import React,{useEffect} from 'react'
-import { StyleSheet, Text, View,Image } from 'react-native'
-import { DanainText } from '../../assets/assets/SPLASH'
+import React, { useEffect } from 'react'
+import { StyleSheet, Text, View, Image } from 'react-native'
+import { DanakuLogo } from '../../assets/assets'
+// import { DanainText } from '../../assets/assets/SPLASH'
+
 import { Colors } from '../../utils'
 
-const Splash = ({navigation}) => {
-    useEffect(()=>{
+const Splash = ({ navigation }) => {
+    useEffect(() => {
         setTimeout(() => {
             navigation.navigate('OnBoarding')
         }, 3000);
@@ -12,7 +14,7 @@ const Splash = ({navigation}) => {
 
     return (
         <View style={styles.container}>
-            <Image source={DanainText} style={styles.image}/>
+            <Image source={DanakuLogo} style={styles.image} />
         </View>
     )
 }
@@ -26,8 +28,9 @@ const styles = StyleSheet.create({
         alignItems:"center",
         backgroundColor:Colors.header
     },
-    image:{
-        height:40,
-        width:250
+    image: {
+        height: 40,
+        // backgroundColor: 'red',
+        width: 250
     }
 })

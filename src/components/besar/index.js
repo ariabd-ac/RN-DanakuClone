@@ -1,5 +1,7 @@
 import Header from './Header'
-
+import MidMenuItem from "./MidMenuItem"
 export {
-    Header
+    Header,
+    MidMenuItem
 }
+
