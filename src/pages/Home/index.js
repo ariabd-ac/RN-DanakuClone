@@ -1,8 +1,9 @@
 import React from 'react'
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { Button, Gap, MidMenuItem } from '../../components'
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { BannerIklanItem, Button, CardItemSwiper, Gap, MidMenuItem } from '../../components'
 import { Colors } from '../../utils'
+import Swiper from 'react-native-swiper'
 
 
 export default function Home() {
@@ -10,6 +11,29 @@ export default function Home() {
   const handleBeli = () => {
     alert('Beli')
   }
+
+  const dot=<View
+  style={{
+  backgroundColor:'rgba(255,255,255,.3)',
+  width: 13,
+  height: 13,
+  borderRadius: 7,
+  marginLeft: 7,
+  marginRight: 7,
+  }}
+/>
+const activeDot=<View
+  style={{
+  backgroundColor:'#fff',
+  width: 13,
+  height: 13,
+  borderRadius: 7,
+  marginLeft: 7,
+  marginRight: 7,
+  }}
+/>
+
+
 
   return (
     <>
@@ -27,8 +51,7 @@ export default function Home() {
           </View>
         </View>
         {/* menu item */}
-        <View style={{height: 47,paddingHorizontal: 50, flexDirection: 'row', justifyContent: 'space-between', marginVertical: 20, }}>
-          
+        <View style={{height: 47,paddingHorizontal: 50, flexDirection: 'row', justifyContent: 'space-between', marginVertical: 20,}}>
             <View style={{width: 28, height: 44, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
               <View>
                 <Image source={require('../../assets/assets/top-icon/pindai-icon.png')} style={{height: 50, width: 50,}}/>
@@ -56,21 +79,31 @@ export default function Home() {
           </View>
 
         {/* Beli */}
-        <View style={{backgroundColor: '#ffffff' , height: 80, width: 400, marginLeft: 12, borderTopLeftRadius: 7, borderTopRightRadius: 7, top: -4}}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 30, paddingTop: 10}}>
-            <View style={{flexDirection: 'row',}}>
-              <Image source={require('../../assets/assets/mid-icon/pulsa-icon2.png')} style={{height: 39, width: 26}}/>
-              <View style={{marginLeft: 20,}}>
-                <Text style={{ color: '#282728'}}>Pulsa</Text>
-                <Text style={{ fontSize: 10, color: '#E4B170'}}>Gan Beli Gan!</Text>
-              </View>
-            </View>
-            <Button text="Beli" onPress={() => handleBeli()}/>
-          </View>
+        <View style={styles.Gap}>
+          <Gap height={10}/>
         </View>
+       
       </View>
       <View style={styles.containerBootom}>
+        <ScrollView>
         {/* mid content */}
+        <View style={{backgroundColor: '#118EEA',}}>
+        <Gap height={10}/>
+        </View>
+        <View style={{backgroundColor: '#118EEA',}}>
+          <View style={{backgroundColor: '#ffffff' , height: 80, width: 400, marginLeft: 12, borderTopLeftRadius: 7, borderTopRightRadius: 7,}}>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 30, paddingTop: 10}}>
+              <View style={{flexDirection: 'row',}}>
+                <Image source={require('../../assets/assets/mid-icon/pulsa-icon2.png')} style={{height: 39, width: 26}}/>
+                <View style={{marginLeft: 20,}}>
+                  <Text style={{ color: '#282728'}}>Pulsa</Text>
+                  <Text style={{ fontSize: 10, color: '#E4B170'}}>Gan Beli Gan!</Text>
+                </View>
+              </View>
+              <Button text="Beli" onPress={() => handleBeli()}/>
+            </View>
+          </View>
+        </View>
         <View style={{backgroundColor: '#FFFFFF', height: 168, borderBottomLeftRadius: 7, borderBottomRightRadius: 7,width: 400, top: 0, backgroundColor: '#ffffff', marginHorizontal: 12}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly', width: '100%', flexWrap: 'wrap', }}>
             <MidMenuItem img={require('../../assets/assets/mid-icon/games-icon.png')} title="Game"/>
@@ -90,8 +123,8 @@ export default function Home() {
           <View style={{backgroundColor: Colors.background, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 18, height: 49, alignItems: 'center', borderTopLeftRadius: 4, borderTopRightRadius: 4, borderBottomRightRadius: 4, borderBottomLeftRadius: 4,}}>
             <View>
               <View>
-                <Text>Ada Promo Nih Sist!</Text>
-                <Text>Hidupmu indah bila shoping terus</Text>
+                <Text style={{fontWeight: 'bold', color: '#000000', fontSize: 14}}>Ada Promo Gila!</Text>
+                <Text style={{color: '#313131', fontSize: 11}}>Hidupmu indah bila shoping terus</Text>
               </View>
             </View>
             <View style={{width: 94}}>
@@ -111,16 +144,64 @@ export default function Home() {
         {/*  */}
         <Gap height={20}/>
         {/* Whatsnew */}
-        <View style={{marginHorizontal: 12, flexDirection: 'row', justifyContent: 'space-between', height: 36,backgroundColor: 'blue'}}>
-          <View style={{backgroundColor: 'green'}}>
-            <Text>What's New</Text>
-            <Text>The best new of the week!</Text>
+        <View style={{marginHorizontal: 12, flexDirection: 'row', justifyContent: 'space-between', height: 36,}}>
+          <View style={{}}>
+            <Text style={{fontWeight: 'bold', color: '#000000', fontSize: 14}}>What's New</Text>
+            <Text style={{color: '#313131', fontSize: 11}}>The best new of the week!</Text>
           </View>
-          <View style={{flex: 1,backgroundColor: 'pink', justifyContent:'center', alignItems: 'center'}}>
-            <Image source={require('../../assets/asss/promo.png')} style={{height: 100, width: 50, resizeMode: 'contain'}}/>
+          <View style={{justifyContent:'center', alignItems: 'center'}}>
+            <Image source={require('../../assets/asss/promo.png')} style={{height: 100, width: 100, resizeMode: 'contain'}}/>
           </View>
         </View>
         {/*  */}
+        <Gap height={20}/>
+        
+        {/* iklan banner */}
+        <Swiper 
+                loop={true} 
+                dot={dot} 
+                activeDot={activeDot}
+                style={{marginHorizontal: 12, height: 100}}
+                >
+            <BannerIklanItem img={require('../../assets/asss/1.jpg')}/>
+            <BannerIklanItem img={require('../../assets/asss/2.png')}/>
+            <BannerIklanItem img={require('../../assets/asss/3.png')}/>
+            <BannerIklanItem img={require('../../assets/asss/4.png')}/>
+            <BannerIklanItem img={require('../../assets/asss/5.png')}/>
+        </Swiper>
+        {/*  */}
+        <Gap height={20}/>
+        {/* card */}
+          {/* <View style={{backgroundColor: 'red', height: 50, width: 50}}></View> */}
+          <ScrollView horizontal style={{flexDirection: 'row', paddingLeft: 16}}>
+            <CardItemSwiper img={require('../../assets/asss/card2.png')} />
+            <CardItemSwiper img={require('../../assets/asss/card1.png')} />
+            <CardItemSwiper img={require('../../assets/asss/card3.png')} />
+            <CardItemSwiper img={require('../../assets/asss/card4.png')} />
+            <CardItemSwiper img={require('../../assets/asss/card5.png')} />
+            <CardItemSwiper img={require('../../assets/asss/card6.png')} />
+            <CardItemSwiper img={require('../../assets/asss/card7.png')} />
+          </ScrollView>
+          
+        {/*  */}
+        <Gap height={20}/>
+        {/* Pendapat Dana */}
+        <View style={{backgroundColor: '#FFFFFF',height: 100, width: 400, marginHorizontal: 12, borderColor: '#E8E8E8', borderWidth: 1, borderRadius: 3}}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingLeft: 10}}>
+            <View style={{width: 47, height: 47, borderRadius: 3,}}>
+              <Image source={require('../../assets/asss/icon_card.png')} style={{width: undefined, height: undefined, resizeMode: 'cover', flex: 1, }}/>
+            </View>
+            <View style={{flex: 1, marginLeft: 20}}>
+              <Text style={{fontSize: 13,fontWeight: 'bold' ,color: '#757575'}}>Apa Pendapat Anda Tentang DANA?</Text>
+              <Text style={{fontSize: 13, color: '#757575'}}>Kami terus berusaha memberikan pengalaman terbaik untuk Anda. Maka kami ingin mendengar pendapat Anda tentang DANA.</Text>
+            </View>
+          </View>
+        </View>
+        {/*  */}
+        <Gap height={20}/>
+        <Gap height={20}/>
+        <Gap height={20}/>
+        </ScrollView>
       </View>
     </>
   )
@@ -129,7 +210,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   containerTop: {
     // flex: 1,
-    height: 219,
+    height: 140,
     backgroundColor: '#118EEA',
     
   },
@@ -142,4 +223,7 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25
   },
+  Gap:{
+    backgroundColor: '#118EEA',
+  }
 })
