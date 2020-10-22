@@ -1,9 +1,9 @@
 import React from 'react'
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { Button, MidMenuItem } from '../../components'
+import { Button, Gap, MidMenuItem } from '../../components'
 import { Colors } from '../../utils'
-import ActionButton from "./ActionButton"
+
 
 export default function Home() {
 
@@ -71,7 +71,7 @@ export default function Home() {
       </View>
       <View style={styles.containerBootom}>
         {/* mid content */}
-        <View style={{backgroundColor: '#FFFFFF', height: 168, borderBottomLeftRadius: 7, borderBottomRightRadius: 7,width: 400, top: 0, backgroundColor: '#ffffff', marginBottom: 20,}}>
+        <View style={{backgroundColor: '#FFFFFF', height: 168, borderBottomLeftRadius: 7, borderBottomRightRadius: 7,width: 400, top: 0, backgroundColor: '#ffffff', marginHorizontal: 12}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly', width: '100%', flexWrap: 'wrap', }}>
             <MidMenuItem img={require('../../assets/assets/mid-icon/games-icon.png')} title="Game"/>
             <MidMenuItem img={require('../../assets/assets/mid-icon/listrik-icon.png')} title="Listrik"/>
@@ -84,8 +84,9 @@ export default function Home() {
           </View>
         </View>
         {/*  */}
+        <Gap height={20}/>
         {/* ada promo? */}
-        <View style={{height: 138, width: 400, borderBottomRightRadius: 4, borderBottomLeftRadius: 4}}>
+        <View style={{height: 138, width: 400, borderBottomRightRadius: 4, borderBottomLeftRadius: 4, marginLeft: 12}}>
           <View style={{backgroundColor: Colors.background, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 18, height: 49, alignItems: 'center', borderTopLeftRadius: 4, borderTopRightRadius: 4, borderBottomRightRadius: 4, borderBottomLeftRadius: 4,}}>
             <View>
               <View>
@@ -97,10 +98,27 @@ export default function Home() {
               <Button text="Lihat Semua" style={{backgroundColor: 'transparant', padding: 8, borderColor: Colors.header, borderWidth: 2, borderRadius: 4,}} onPress={() => handleBeli()}/>
             </View>
           </View>
-          <ImageBackground imageStyle={{borderBottomLeftRadius: 4, borderBottomRightRadius: 4}} source={require('../../assets/assets/promo-icon/promo1.png')} style={{width: '100%', height: 100, position: 'relative', borderBottomLeftRadius: 4, borderBottomRightRadius: 4}}>
-            {/* <Image source={require('../../assets/assets/promo-icon/promo1.png')} style={{}} resizeMode=""/> */}
-            
-          </ImageBackground>
+          <ImageBackground imageStyle={{borderBottomLeftRadius: 4, borderBottomRightRadius: 4}} source={require('../../assets/assets/promo-icon/promo1.png')} style={{width: '100%', height: 100, position: 'relative', borderBottomLeftRadius: 4, borderBottomRightRadius: 4}}/>
+        </View>
+        {/*  */}
+        <Gap height={20}/>
+        {/* Iklan */}
+        <View style={{width: 400, height: 90, marginHorizontal: 12 }}>
+          <View style={{position: 'relative'}}> 
+          <Image source={require('../../assets/assets/promo-icon/promo4.png')}  style={{height: 90, width: '100%', borderRadius: 6, resizeMode: 'cover' }}/>
+          </View>
+        </View>
+        {/*  */}
+        <Gap height={20}/>
+        {/* Whatsnew */}
+        <View style={{marginHorizontal: 12, flexDirection: 'row', justifyContent: 'space-between', height: 36,backgroundColor: 'blue'}}>
+          <View style={{backgroundColor: 'green'}}>
+            <Text>What's New</Text>
+            <Text>The best new of the week!</Text>
+          </View>
+          <View style={{flex: 1,backgroundColor: 'pink', justifyContent:'center', alignItems: 'center'}}>
+            <Image source={require('../../assets/asss/promo.png')} style={{height: 100, width: 50, resizeMode: 'contain'}}/>
+          </View>
         </View>
         {/*  */}
       </View>
@@ -118,7 +136,7 @@ const styles = StyleSheet.create({
   containerBootom: {
     flex: 1,
     backgroundColor: '#F5F5F5',
-    alignItems: 'center'
+    
   },
   topImage:{
     width: 25,
