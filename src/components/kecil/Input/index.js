@@ -24,7 +24,11 @@ const styles = StyleSheet.create({
         
     },
     textinput:{
-        fontSize:20,
-        color:Colors.background
+        fontSize:12,
+        borderWidth:1,
+        borderColor:Colors.borderColor,
+        color:Colors.borderColor,
+        borderRadius:5,
+        paddingHorizontal:10
     }
 })
