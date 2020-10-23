@@ -1,9 +1,11 @@
 import React from 'react'
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
-import { BannerIklanItem, Button, CardItemSwiper, Gap, MidMenuItem } from '../../components'
+import { BannerIklanItem, Button, CardItemSwiper, Gap, MidMenuItem, NewsItem } from '../../components'
 import { Colors } from '../../utils'
 import Swiper from 'react-native-swiper'
+import Icon from 'react-native-ionicons'
+
 
 
 export default function Home() {
@@ -11,6 +13,14 @@ export default function Home() {
   const handleBeli = () => {
     alert('Beli')
   }
+
+
+  const IconBar = () => (
+    <View>
+      <Icon name="arrow-forward" />
+      <Icon ios="ios-add" android="md-add" />
+    </View>
+  )
 
   const dot=<View
   style={{
@@ -199,7 +209,52 @@ const activeDot=<View
         </View>
         {/*  */}
         <Gap height={20}/>
+        {/* nerby */}
+        <View style={{marginHorizontal: 12, height: 176,}}>
+          <View>
+            <View>
+              <Text style={{fontWeight: 'bold',color: '#1B1B1B' ,fontSize: 14}}>Nearby</Text>
+              <Text style={{color: '#656565', fontSize: 13}}>Find DANA merchants near your area!</Text>
+            </View>
+            <View style={{backgroundColor: '#ffffff', marginTop: 10, height: 133, borderRadius: 4, flexDirection: 'row', width: 400, position: 'relative', alignItems: 'center', borderColor: '#E8E8E8', borderWidth: 1}}>
+              <View>
+                <View style={{backgroundColor: '#ffffff', width: 270, paddingLeft: 16}}>
+                  <Text style={{color: '#1B1B1B', fontWeight: 'bold'}}>Looks like your location service is off. Please trun it on to use Nearby feature.</Text>
+                  <View style={{marginTop: 16, width: 100, }}>
+                    <Button text="ACTIVE" style={{borderRadius:4, borderColor: '#67B7F1', borderWidth: 1,backgroundColor: '#ffffff', height: 27, padding: 2,}}/>
+                  </View>
+                </View>
+              </View>
+              <View style={{width: 100, height: 100, borderRadius: 4, position: 'absolute', left: 300}}>
+                <Image source={require('../../assets/asss/nerby.png')} style={{width: undefined, height: undefined, resizeMode: 'cover', flex: 1, }}/>
+              </View>
+            </View>
+          </View>
+        </View>
+        {/*  */}
+        {/* news */}
         <Gap height={20}/>
+        <View style={{marginHorizontal: 12,}} >
+          <View style={{marginBottom: 5}}>
+            <Text style={{color: '#B6B6B6'}}>DANA NEWS</Text>
+          </View>
+          <NewsItem img={require('../../assets/asss/cardd/card1.png')} judul="Gratis di Endorse Artis" desc="Yuk gabung dana bisnis"/>
+          <NewsItem img={require('../../assets/asss/cardd/card2.png')} judul="Beli Item Game Yuk!" desc="Dapetin di dana.id/games"/>
+          <NewsItem img={require('../../assets/asss/cardd/card3.png')} judul="Ikutin cerita usaha" desc="Intip Business Hack ini!"/>
+          <NewsItem img={require('../../assets/asss/cardd/card4.png')} judul="Transfer ke Bank di DANA" desc="GRATIS biaya admin!"/>
+          <NewsItem img={require('../../assets/asss/cardd/card5.png')} judul="Pake Face Login di DANA" desc="Aman, cepat & praktis!"/>
+          <NewsItem img={require('../../assets/asss/cardd/card6.png')} judul="DANA Belanja di Rumah" desc="Chat, pesan bayar!"/>
+          <NewsItem img={require('../../assets/asss/cardd/card7.png')} judul="Kenalin Eazy Eats" desc="Gercep pesan & ambil makan!"/>
+          <NewsItem img={require('../../assets/asss/cardd/card8.png')} judul="BARU di Nearby" desc="Review toko favorit!"/>
+          <NewsItem img={require('../../assets/asss/cardd/card9.png')} judul="BARU di Delivery" desc="Pilih kurir buat paketmu!"/>
+          <NewsItem img={require('../../assets/asss/cardd/card10.png')} judul="Scan DANA QRIS" desc="Bayar lebih praktis!"/>
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{marginTop: 10, height: 20, width: 90, justifyContent: 'center', alignItems: 'center'}}>
+              <Button style={{backgroundColor: 'transparant', padding: 5, borderColor: Colors.header, borderWidth: 2, borderRadius: 4,}} onPress={() => handleBeli()} text="LEAD MORE"/>
+            </View>
+          </View>
+        </View>
+        {/*  */}
         <Gap height={20}/>
         </ScrollView>
       </View>
