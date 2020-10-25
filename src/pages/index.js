@@ -3,6 +3,7 @@ import OnBoarding from './OnBoarding'
 import Login from './Login'
 import Home from "./Home"
 import KirimDanain from "./KirimDanain"
+import TabNavigator from "./TabNavigator"
 
 
 export {
@@ -10,5 +11,6 @@ export {
     OnBoarding,
     Login,
     Home,
-    KirimDanain
+    KirimDanain,
+    TabNavigator
 }

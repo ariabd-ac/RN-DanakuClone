@@ -1,14 +1,14 @@
 import React from 'react'
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
-import { BannerIklanItem, Button, CardItemSwiper, Gap, MidMenuItem, NewsItem } from '../../components'
+import { BannerIklanItem, Button, CardItemSwiper, Gap, HeaderItem, MidMenuItem, NewsItem } from '../../components'
 import { Colors } from '../../utils'
 import Swiper from 'react-native-swiper'
 import Icon from 'react-native-ionicons'
 
 
 
-export default function Home() {
+export default function Home({navigation}) {
 
   const handleBeli = () => {
     alert('Beli')
@@ -62,31 +62,11 @@ const activeDot=<View
         </View>
         {/* menu item */}
         <View style={{height: 47,paddingHorizontal: 50, flexDirection: 'row', justifyContent: 'space-between', marginVertical: 20,}}>
-            <View style={{width: 28, height: 44, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
-              <View>
-                <Image source={require('../../assets/assets/top-icon/pindai-icon.png')} style={{height: 50, width: 50,}}/>
-                <Text style={{fontSize: 13, fontWeight: 'bold', color: '#e5ffff', textAlign:'center'}}>Pindai</Text>
-              </View>
-            </View>
-            <View style={{width: 28, height: 44, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
-              <View>
-                <Image source={require('../../assets/assets/top-icon/saldo-icon.png')} style={{height: 50, width: 50,}}/>
-                <Text style={{fontSize: 13, fontWeight: 'bold', color: '#e5ffff', textAlign:'center'}}>Pindai</Text>
-              </View>
-            </View>
-            <View style={{width: 28, height: 44, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
-              <View>
-                <Image source={require('../../assets/assets/top-icon/kirim-icon.png')} style={{height: 50, width: 50,}}/>
-                <Text style={{fontSize: 13, fontWeight: 'bold', color: '#e5ffff', textAlign:'center'}}>Pindai</Text>
-              </View>
-            </View>
-            <View style={{width: 28, height: 44, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }}>
-              <View>
-                <Image source={require('../../assets/assets/top-icon/minta-icon.png')} style={{height: 50, width: 50,}}/>
-                <Text style={{fontSize: 13, fontWeight: 'bold', color: '#e5ffff', textAlign:'center'}}>Pindai</Text>
-              </View>
-            </View>
-          </View>
+            <HeaderItem title="Pindai " img={require('../../assets/assets/top-icon/pindai-icon.png')} onPress={() => handleBeli()}/>
+            <HeaderItem title="Isi Saldo" img={require('../../assets/assets/top-icon/saldo-icon.png')} onPress={() => handleBeli()}/>
+            <HeaderItem title="Kirim" img={require('../../assets/assets/top-icon/kirim-icon.png')} onPress={() => navigation.navigate('KirimDanain')}/>
+            <HeaderItem title="Minta" img={require('../../assets/assets/top-icon/minta-icon.png')} onPress={() => handleBeli()}/>
+        </View>
 
         {/* Beli */}
         <View style={styles.Gap}>

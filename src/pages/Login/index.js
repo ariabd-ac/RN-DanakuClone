@@ -26,7 +26,7 @@ const Login = ({navigation}) => {
 
     useEffect(()=>{
         console.log(phoneNumber.length)
-        if(phoneNumber.length >9){
+        if(phoneNumber.length > 9){
             setBtnNextDisable(false)
         }else{
             setBtnNextDisable(true)
@@ -39,7 +39,7 @@ const Login = ({navigation}) => {
 
     return (
         <View style={styles.page}>
-            <Header isNext isDisable={btnNextDisable} onPress={()=>navigation.navigate('Home')}/>
+            <Header isNext isDisable={btnNextDisable} onPress={()=>navigation.navigate('MainApp')}/>
             <View style={styles.container}>
                 <Text style={styles.text}>Enter your phone number to sign in or create a new account</Text>
                 <Gap height={20}/>

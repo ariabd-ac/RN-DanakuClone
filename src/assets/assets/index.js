@@ -13,6 +13,16 @@ import IconBankBCA from './saldo-icon/bca-icon.png'
 import IconBankBNI from './saldo-icon/bni-icon.png'
 import IconBankBRI from './saldo-icon/bri-icon.png'
 
+// icon navigator
+import IcNavBeranda from './icons-navi/beranda-icon.png'
+import IcNavPay from './icons-navi/pay-icon.png'
+import IcNavPocket from './icons-navi/pocket-icon.png'
+import IcNavRiwayat from './icons-navi/riwayat-icon.png'
+import IcNavProfile from './icons-navi/saya-icon.png'
+
+
+
+
 export { 
     DanakuLogo,
     BukaLapakIcon,
@@ -25,5 +35,6 @@ export {
     IconContact,
     IconInvitFriend,
     IconPlus,
-    IconBankBCA,IconBankBNI,IconBankBRI
+    IconBankBCA,IconBankBNI,IconBankBRI,
+    IcNavBeranda,IcNavRiwayat,IcNavProfile,IcNavPay,IcNavPocket
  } 

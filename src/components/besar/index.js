@@ -5,6 +5,8 @@ import FormKirim from "./FormKirim"
 import BannerIklanItem from "./BannerIklanItem"
 import CardItemSwiper from "./CardItemSwiper"
 import NewsItem from "./NewsItem"
+import HeaderItem from "./HeaderItem"
+import ButtomNavigation from './ButtomNavigation'
 
 
 export {
@@ -15,5 +17,7 @@ export {
     BannerIklanItem,
     CardItemSwiper,
     NewsItem,
+    HeaderItem,
+    ButtomNavigation
 }
 

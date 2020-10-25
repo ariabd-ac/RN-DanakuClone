@@ -14,8 +14,8 @@ const KirimDanain = () => {
 
     return (
         <View style={styles.page}>
-            <Header title='Kirim Danain' isBack/>
-            <ScrollView >
+            {/* <Header title='Kirim Danain' isBack/> */}
+            <ScrollView style={{marginTop: 10}}>
                 <View style={styles.container}>
                     <Text style={styles.h1}>Siapa yang ingin anda kirim</Text>
                     <Gap height={15}/>
@@ -86,7 +86,8 @@ export default KirimDanain
 const styles = StyleSheet.create({
     page:{
         flex:1,
-        backgroundColor:Colors.background
+        // backgroundColor:Colors.background
+        backgroundColor: '#FFFFFF'
     },container:{
         paddingHorizontal:15,
         flex:1,

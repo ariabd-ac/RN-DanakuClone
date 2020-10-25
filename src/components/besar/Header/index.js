@@ -11,7 +11,7 @@ const Header = ({isNext,onPress,isDisable,isBack,title}) => {
             return <Text style={styles.title}>{title}</Text>
         }
 
-        return <Image source={DanainText} style={styles.title} resizeMode='contain'/>
+        return <Image source={DanainText} style={{width: 100, height: 25, }} resizeMode='contain'/>
     }
     return (
         <View style={styles.container}>
