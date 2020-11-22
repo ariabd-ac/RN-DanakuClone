@@ -48,9 +48,6 @@ const Login = ({navigation}) => {
         fetch(urlRegister,configFetch)
             .then(res=>{return res.json()})
             .then(res=>{
-                if(err.code=='ER_DUP_ENTRY'){
-                    res.message='Registrasi Gagal,Nomer Sudah terdaftar'
-                }
                 alert(res.message)
                 if(res.status==true){
                     navigation.navigate('MainApp')
