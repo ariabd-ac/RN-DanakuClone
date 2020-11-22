@@ -30,7 +30,7 @@ const OnBoarding = ({navigation}) => {
             />
      
 
-
+    
     return (
         <View style={styles.page}>
             <View style={styles.logo_wrapper}>

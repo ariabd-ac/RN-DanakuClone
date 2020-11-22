@@ -33,13 +33,36 @@ const Login = ({navigation}) => {
         }
     },[phoneNumber])
 
+    const register=()=>{
+        const urlRegister='http://wsdanaku.com.pemalicomal.com/register'
+        let configFetch={
+            method:'POST',
+                mode:'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body:JSON.stringify({
+                    no_telp:`+62${phoneNumber}`
+                })
+        }
+        fetch(urlRegister,configFetch)
+            .then(res=>{return res.json()})
+            .then(res=>{
+                alert(res.message)
+                navigation.navigate('MainApp')
+            }).catch(err=>{
+                alert(err.message)
+            })
+        
+        
+    }
 
-    
+
    
 
     return (
         <View style={styles.page}>
-            <Header isNext isDisable={btnNextDisable} onPress={()=>navigation.navigate('MainApp')}/>
+            <Header isNext isDisable={btnNextDisable} onPress={register}/>
             <View style={styles.container}>
                 <Text style={styles.text}>Enter your phone number to sign in or create a new account</Text>
                 <Gap height={20}/>
@@ -58,7 +81,6 @@ const Login = ({navigation}) => {
                     <MidMenuItem img={LazadaIcon} />
                     <MidMenuItem img={TixIcon} />
                     <MidMenuItem img={ManyIcon}/>
-
                 </View>
             </View>
         </View>
