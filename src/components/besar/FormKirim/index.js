@@ -5,7 +5,7 @@ import { ImageKirimSiapaCard } from '../../../assets/assets'
 import { Colors } from '../../../utils'
 import { Gap, Input } from '../../kecil'
 
-const FormKirim = () => {
+const FormKirim = ({dataForm,setForm}) => {
     return (
         <View style={styles.container}>
             <View style={styles.banner_container}>
@@ -36,9 +36,9 @@ const FormKirim = () => {
             </View>
             <View style={styles.container_form}>
                 <Gap height={10}/>
-                <Input placeholder='Ketik nomor telepon atau nama'/>
+                <Input placeholder='Ketik nomor telepon atau nama' value={dataForm.noTelp} onChangeText={(e)=>setForm('noTelp',e)}/>
                 <Gap height={10}/>
-                <Input placeholder='Masukan nominal yang ingin dikirim'/>
+                <Input placeholder='Masukan nominal yang ingin dikirim' value={dataForm.nominal} onChangeText={(e)=>setForm('nominal',e)}/>
             </View>
         </View>
     )

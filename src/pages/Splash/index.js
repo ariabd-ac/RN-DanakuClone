@@ -3,14 +3,20 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import { DanakuLogo } from '../../assets/assets'
 // import { DanainText } from '../../assets/assets/SPLASH'
 
-import { Colors } from '../../utils'
+import { Colors, __getData } from '../../utils'
 
 const Splash = ({ navigation }) => {
     useEffect(() => {
-        setTimeout(() => {
-            navigation.navigate('OnBoarding')
-        }, 3000);
-    })
+        __getData('user')
+        .then(res=>{
+            if(res != null){
+                navigation.push('MainApp')
+            }else{
+                navigation.navigate('OnBoarding')
+            }
+        })
+        
+    },[])
 
     return (
         <View style={styles.container}>

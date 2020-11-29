@@ -1,18 +1,31 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import { BannerIklanItem, Button, CardItemSwiper, Gap, HeaderItem, MidMenuItem, NewsItem } from '../../components'
-import { Colors } from '../../utils'
+import { Colors, __getData,__removeValue } from '../../utils'
 import Swiper from 'react-native-swiper'
 import Icon from 'react-native-ionicons'
 
 
 
 export default function Home({navigation}) {
+  const [user,setUser]=useState({})
+
+
+  useEffect(() => {
+    __getData('user')
+    .then(res=>setUser(res))
+    console.log('user',user)
+    // return () => {
+    //   cleanup
+    // }
+  }, [])
 
   const handleBeli = () => {
     alert('Beli')
   }
+
+
 
 
   const IconBar = () => (
@@ -48,13 +61,19 @@ const activeDot=<View
   return (
     <>
       <View style={styles.containerTop}>
+        
         <View style={{height: 27, marginTop: 20, paddingHorizontal: 20, marginBottom: 16,}}>
           {/* logo rp pesan */}
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image source={require('../../assets/assets/top-icon/iconapp-icon-01.png')} style={styles.topImage}/>
-              <Text style={{paddingLeft: 9, textAlign: 'center', color: '#E5FFFF', fontWeight: 'bold', fontSize: 13}}>Rp. 11.289.000</Text>
+              <View>
+                <Text style={{paddingLeft: 9, textAlign: 'left', color: '#E5FFFF', fontWeight: 'bold', fontSize: 16}}>{user.nama_user}</Text>
+                <Gap height={2}/> 
+                <Text style={{paddingLeft: 9, textAlign: 'left', color: '#E5FFFF', fontWeight: 'bold', fontSize: 13}}>Rp. {user.saldo}</Text>
+              </View>
             </View>
+            <Gap height={5}/>
             <View style={{height: 50, width: 50, alignItems: 'center', justifyContent: 'center'}}>
               <Image source={require('../../assets/assets/top-icon/chart-icon.png')} style={{height: 30, width: 30,}}/>
             </View>

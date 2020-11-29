@@ -1,7 +1,7 @@
 import React, { useState,useRef, useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Gap, Header, Input, MidMenuItem } from '../../components'
-import { Colors } from '../../utils'
+import { Colors, __getData, __storeData } from '../../utils'
 import {BukaLapakIcon,LazadaIcon,TixIcon,ManyIcon} from '../../assets/assets'
 
 const Login = ({navigation}) => {
@@ -33,30 +33,11 @@ const Login = ({navigation}) => {
         }
     },[phoneNumber])
 
-    const register=()=>{
-        const urlRegister='http://wsdanaku.com.pemalicomal.com/register'
-        let configFetch={
-            method:'POST',
-                mode:'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body:JSON.stringify({
-                    no_telp:`+62${phoneNumber}`
-                })
-        }
-        fetch(urlRegister,configFetch)
-            .then(res=>{return res.json()})
-            .then(res=>{
-                alert(res.message)
-                if(res.status==true){
-                    navigation.navigate('MainApp')
-                }
-            }).catch(err=>{
-                alert(err.message)
-            })
-        
-        
+    const login=()=>{
+
+        // action login here...
+        console.log('login')
+          
     }
 
 
@@ -64,7 +45,7 @@ const Login = ({navigation}) => {
 
     return (
         <View style={styles.page}>
-            <Header isNext isDisable={btnNextDisable} onPress={register}/>
+            <Header isNext isDisable={btnNextDisable} onPress={login}/>
             <View style={styles.container}>
                 <Text style={styles.text}>Enter your phone number to sign in or create a new account</Text>
                 <Gap height={20}/>

@@ -1,18 +1,38 @@
 import React from 'react'
-import { StyleSheet, Text, View,TextInput } from 'react-native'
+import { StyleSheet, Text, View,TextInput, Picker } from 'react-native'
 import { Colors } from '../../../utils'
 import EnterNumber from './EnterNumber'
 
-const Input = ({placeholder,type,onChangeText,value,forwardedRef}) => {
+const Input = ({placeholder,label,type,onChangeText,value,forwardedRef}) => {
 
-    if(type=='enterNumber'){
-        return(
-            <EnterNumber onChangeText={onChangeText} value={value} forwardedRef={forwardedRef}/>
-        )
+    
+
+    const InputType=()=>{
+        if(type=='enterNumber'){
+            return(
+                <EnterNumber onChangeText={onChangeText} value={value} forwardedRef={forwardedRef}/>
+            )
+        }
+    
+        if(type=='picker'){
+            return(
+                <View style={styles.textinput}>
+                    <Picker onValueChange={onChangeText} selectedValue={value}>
+                        <Picker.Item label='Laki-laki' value={1}/>
+                        <Picker.Item label='Perempuan' value={2}/>
+                    </Picker>
+                </View>
+            )
+        }
+
+        return <TextInput placeholder={placeholder} style={styles.textinput} value={value} onChangeText={onChangeText}/>
     }
+
+
     return (
         <View style={styles.container}>
-            <TextInput placeholder={placeholder} style={styles.textinput}/>
+            <Text>{label}</Text>
+            <InputType/>
         </View>
     )
 }
@@ -29,6 +49,6 @@ const styles = StyleSheet.create({
         borderColor:Colors.borderColor,
         color:Colors.borderColor,
         borderRadius:5,
-        paddingHorizontal:10
+        paddingHorizontal:10,
     }
 })

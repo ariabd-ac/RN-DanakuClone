@@ -1,7 +1,7 @@
 import React from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer} from '@react-navigation/native'
-import {Splash,OnBoarding,Login,Home,KirimDanain} from '../pages'
+import {Splash,OnBoarding,Login,Home,KirimDanain, Register} from '../pages'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {History,Pay,Pocket,Profile} from '../pages/TabNavigator'
 import { ButtomNavigation } from '../components';
@@ -115,6 +115,7 @@ export default function Router(){
                 <Stack.Screen name='Splash' component={Splash} options={{headerShown:false}}/>
                 <Stack.Screen name='OnBoarding' component={OnBoarding} options={{headerShown:false}}/>
                 <Stack.Screen name='Login' component={Login} options={{headerShown:false}}/>
+                <Stack.Screen name='Register' component={Register} options={{headerShown:false}}/>
                 <Stack.Screen name='MainApp' component={MainApp} options={{headerShown:false}}/>
                 <Stack.Screen name='KirimDanain' component={KirimDanain} options={{headerShown:true, headerTitle: 'Kirim Dana',headerTitleAlign: 'center' ,headerTitleStyle:{color: 'white'} ,headerStyle:{backgroundColor: '#118EEA',}} }/>
             </Stack.Navigator>

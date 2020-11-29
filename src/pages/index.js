@@ -4,6 +4,7 @@ import Login from './Login'
 import Home from "./Home"
 import KirimDanain from "./KirimDanain"
 import TabNavigator from "./TabNavigator"
+import Register from "./Register"
 
 
 export {
@@ -12,5 +13,6 @@ export {
     Login,
     Home,
     KirimDanain,
-    TabNavigator
+    TabNavigator,
+    Register
 }

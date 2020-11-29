@@ -3,7 +3,7 @@ import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 import Swiper from 'react-native-swiper'
 import { DanainText, SplashIcon1,SplashIcon2,SplashIcon3 } from '../../assets/assets/SPLASH'
 import { IconApp } from '../../assets/assets/top-icon'
-import { Button, SplashItem } from '../../components'
+import { Button, Gap, SplashItem } from '../../components'
 import { Colors } from '../../utils'
 
 const OnBoarding = ({navigation}) => {
@@ -59,7 +59,9 @@ const OnBoarding = ({navigation}) => {
             </Swiper>
                 
             <View style={styles.footer}>
-                <Button text='SKIP' onPress={()=>navigation.navigate('Login')}/>
+                <Button text='Register' onPress={()=>navigation.navigate('Register')}/>
+                <Gap height={20}/>
+                <Button text='Sign In' onPress={()=>navigation.navigate('Login')}/>
                 <Text style={styles.footer_text}>
                     By tapping skip button,you agree to our Terms & Conditions
                 </Text>
