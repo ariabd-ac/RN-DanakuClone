@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
@@ -15,9 +16,36 @@ import Swiper from 'react-native-swiper';
 import Icon from 'react-native-ionicons';
 
 export default function Home({navigation}) {
+=======
+import React,{useState,useEffect} from 'react'
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { BannerIklanItem, Button, CardItemSwiper, Gap, HeaderItem, MidMenuItem, NewsItem } from '../../components'
+import { Colors, __getData,__removeValue } from '../../utils'
+import Swiper from 'react-native-swiper'
+import Icon from 'react-native-ionicons'
+
+
+
+export default function Home({navigation}) {
+  const [user,setUser]=useState({})
+
+
+  useEffect(() => {
+    __getData('user')
+    .then(res=>setUser(res))
+    console.log('user',user)
+    // return () => {
+    //   cleanup
+    // }
+  }, [])
+
+>>>>>>> 3fdc8a1915ddcd629bb0641115ac268d4b0df435
   const handleBeli = () => {
     alert('Beli');
   };
+
+
 
   const IconBar = () => (
     <View>
@@ -54,6 +82,7 @@ export default function Home({navigation}) {
   return (
     <>
       <View style={styles.containerTop}>
+<<<<<<< HEAD
         <View
           style={{
             height: 27,
@@ -61,6 +90,10 @@ export default function Home({navigation}) {
             paddingHorizontal: 20,
             marginBottom: 16,
           }}>
+=======
+        
+        <View style={{height: 27, marginTop: 20, paddingHorizontal: 20, marginBottom: 16,}}>
+>>>>>>> 3fdc8a1915ddcd629bb0641115ac268d4b0df435
           {/* logo rp pesan */}
           <View
             style={{
@@ -69,6 +102,7 @@ export default function Home({navigation}) {
               justifyContent: 'space-between',
             }}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
+<<<<<<< HEAD
               <Image
                 source={require('../../assets/assets/top-icon/iconapp-icon-01.png')}
                 style={styles.topImage}
@@ -95,6 +129,18 @@ export default function Home({navigation}) {
                 source={require('../../assets/assets/top-icon/chart-icon.png')}
                 style={{height: 30, width: 30}}
               />
+=======
+              <Image source={require('../../assets/assets/top-icon/iconapp-icon-01.png')} style={styles.topImage}/>
+              <View>
+                <Text style={{paddingLeft: 9, textAlign: 'left', color: '#E5FFFF', fontWeight: 'bold', fontSize: 16}}>{user.nama_user}</Text>
+                <Gap height={2}/> 
+                <Text style={{paddingLeft: 9, textAlign: 'left', color: '#E5FFFF', fontWeight: 'bold', fontSize: 13}}>Rp. {user.saldo}</Text>
+              </View>
+            </View>
+            <Gap height={5}/>
+            <View style={{height: 50, width: 50, alignItems: 'center', justifyContent: 'center'}}>
+              <Image source={require('../../assets/assets/top-icon/chart-icon.png')} style={{height: 30, width: 30,}}/>
+>>>>>>> 3fdc8a1915ddcd629bb0641115ac268d4b0df435
             </View>
           </View>
         </View>

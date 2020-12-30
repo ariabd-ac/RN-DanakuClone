@@ -2,15 +2,56 @@ import React,{useState} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { IconArrowGrey, IconBankBCA,IconBankBNI,IconBankBRI, IconContact,IconInvitFriend,IconPlus } from '../../assets/assets'
-import {Header,FormKirim,ListMenu, Gap, ListItem} from '../../components'
-import { Colors } from '../../utils'
+import {Header,FormKirim,ListMenu, Gap, ListItem, Button} from '../../components'
+import { Colors, __getData } from '../../utils'
 
 
 const KirimDanain = () => {
 
     const [enableContact,setEnableContact]=useState(false)
     const [enableBankList,setEnableBankList]=useState(false)
+   
+
+    const [dataForm,setDataForm]=useState({
+        noTelp:'',
+        nominal:''
+    })
     
+
+    const kirim=()=>{
+        console.log('Kirim')
+        const urlRegister='http://wsdanaku.com.pemalicomal.com/transfer'
+        __getData('user').then((res)=>{
+            if(res.saldo > dataForm.nominal){
+                let data={
+                    to:dataForm.noTelp,
+                    from:res.no_telp,
+                    nominal:dataForm.nominal
+                }
+    
+    
+                fetch(urlRegister,{
+                    method:'POST',
+                    mode:'cors',
+                    headers:{
+                        'Content-Type': 'application/json',
+                    },
+                    body:JSON.stringify(data)
+                }).then(res=>{return res.json()})
+                .then(result=>console.log(result))
+                .catch(err=>console.log(err))
+            }else{
+                alert('Saldo Anda Kurang')
+            }
+            
+        })
+        
+
+    }
+
+    const setForm=(keyValue,value)=>{
+        setDataForm({...dataForm,[keyValue]:value})
+    }
 
     return (
         <View style={styles.page}>
@@ -21,7 +62,9 @@ const KirimDanain = () => {
                     <Gap height={15}/>
                     <Text style={styles.h2}>Silahkan memilih penerima</Text>
                     <Gap height={15}/>
-                    <FormKirim/>
+                    <FormKirim dataForm={dataForm} setForm={setForm}/>
+                    <Gap height={15}/>
+                    <Button onPress={kirim} text='Kirim'/>
                     <Gap height={15}/>
                     <Text style={styles.h2}>BANK TERSIMPAN</Text>
                     <Gap height={15}/>
@@ -96,6 +139,6 @@ const styles = StyleSheet.create({
         width:200
     },h2:{
         fontSize:12
-    },
+    }
 
 })

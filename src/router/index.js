@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -5,6 +6,15 @@ import {Splash, OnBoarding, Login, Home, KirimDanain, IsiSaldo} from '../pages';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {History, Pay, Pocket, Profile} from '../pages/TabNavigator';
 import {ButtomNavigation} from '../components';
+=======
+import React from 'react'
+import {createStackNavigator} from '@react-navigation/stack'
+import {NavigationContainer} from '@react-navigation/native'
+import {Splash,OnBoarding,Login,Home,KirimDanain, Register} from '../pages'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {History,Pay,Pocket,Profile} from '../pages/TabNavigator'
+import { ButtomNavigation } from '../components';
+>>>>>>> 3fdc8a1915ddcd629bb0641115ac268d4b0df435
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Image} from 'react-native';
 
@@ -158,3 +168,23 @@ export default function Router() {
     </NavigationContainer>
   );
 }
+<<<<<<< HEAD
+=======
+
+
+export default function Router(){
+    return(
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Splash">
+                <Stack.Screen name='Splash' component={Splash} options={{headerShown:false}}/>
+                <Stack.Screen name='OnBoarding' component={OnBoarding} options={{headerShown:false}}/>
+                <Stack.Screen name='Login' component={Login} options={{headerShown:false}}/>
+                <Stack.Screen name='Register' component={Register} options={{headerShown:false}}/>
+                <Stack.Screen name='MainApp' component={MainApp} options={{headerShown:false}}/>
+                <Stack.Screen name='KirimDanain' component={KirimDanain} options={{headerShown:true, headerTitle: 'Kirim Dana',headerTitleAlign: 'center' ,headerTitleStyle:{color: 'white'} ,headerStyle:{backgroundColor: '#118EEA',}} }/>
+            </Stack.Navigator>
+            
+        </NavigationContainer>
+    )
+}
+>>>>>>> 3fdc8a1915ddcd629bb0641115ac268d4b0df435

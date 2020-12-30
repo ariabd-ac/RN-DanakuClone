@@ -1,7 +1,7 @@
 import React, { useState,useRef, useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Gap, Header, Input, MidMenuItem } from '../../components'
-import { Colors } from '../../utils'
+import { Colors, __getData, __storeData } from '../../utils'
 import {BukaLapakIcon,LazadaIcon,TixIcon,ManyIcon} from '../../assets/assets'
 
 const Login = ({navigation}) => {
@@ -33,13 +33,19 @@ const Login = ({navigation}) => {
         }
     },[phoneNumber])
 
+    const login=()=>{
 
-    
+        // action login here...
+        console.log('login')
+          
+    }
+
+
    
 
     return (
         <View style={styles.page}>
-            <Header isNext isDisable={btnNextDisable} onPress={()=>navigation.navigate('MainApp')}/>
+            <Header isNext isDisable={btnNextDisable} onPress={login}/>
             <View style={styles.container}>
                 <Text style={styles.text}>Enter your phone number to sign in or create a new account</Text>
                 <Gap height={20}/>
@@ -58,7 +64,6 @@ const Login = ({navigation}) => {
                     <MidMenuItem img={LazadaIcon} />
                     <MidMenuItem img={TixIcon} />
                     <MidMenuItem img={ManyIcon}/>
-
                 </View>
             </View>
         </View>
